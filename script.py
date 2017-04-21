@@ -8,5 +8,6 @@ for x in range(5):
   while True:
     msg.append(ser.readline()[:-2])
     if '!' in msg[-1]:
-      print msg
+      for item in msg:
+        print item
       break
