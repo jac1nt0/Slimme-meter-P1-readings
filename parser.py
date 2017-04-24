@@ -25,9 +25,10 @@ OBIS = pp.Combine(pp.Word(pp.nums,exact=1) +
                 '.' + 
                 pp.Word(pp.nums,min=1,max=2))('obis')
 
-sentence1 = OBIS + pp.Suppress('(') + pp.Word(pp.nums) + pp.Suppress(')')
+sentence1 = OBIS + pp.Suppress('(') + pp.Optional(pp.Word(pp.nums)) + pp.Suppress(')')
 sentence2 = OBIS + pp.Suppress('(') + TST + pp.Suppress(')') + pp.Suppress('(') + value+ pp.Suppress(')')
 sentence3 = OBIS + pp.Suppress('(') + value + pp.Suppress(')')
+sentence4 = OBIS + pp.Optional(pp.Word(pp.nums)) + OBIS + pp.Suppress('(') + TST + pp.Suppress(')') + pp.Suppress('(') + value+ pp.Suppress(')')
 
 test_data = '''
 /KFM5KAIFA-METER
