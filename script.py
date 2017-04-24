@@ -12,6 +12,6 @@ for x in range(5):
     msg.append(ser.readline()[:-2])
     if '!' in msg[-1]:
       for item in msg:
-        print msg
+        print item
       break
 
