@@ -18,11 +18,11 @@ OBIS = pp.Group(pp.Word(pp.nums,exact=1) +
                 '-' + 
                 pp.Word(pp.nums,exact=1) + 
                 ':' + 
-                pp.Word(pp.nums,exact=1) + 
+                pp.Word(pp.nums,min=1,max=2) + 
                 '.' +
-                pp.Word(pp.nums,exact=1) + 
+                pp.Word(pp.nums,min=1,max=2) + 
                 '.' + 
-                pp.Word(pp.nums,exact=1))('obis')
+                pp.Word(pp.nums,min=1,max=2))('obis')
 
 test_data = '''
 /KFM5KAIFA-METER
