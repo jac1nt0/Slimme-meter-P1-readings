@@ -2,9 +2,6 @@ import serial
 import time
 import pyparsing
 
-class DataPackage():
-  
-
 ser = serial.Serial(port='/dev/ttyUSB0', baudrate=115200)
 
 for x in range(5):
