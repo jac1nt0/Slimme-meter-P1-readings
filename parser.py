@@ -42,8 +42,8 @@ test_data = '''
 
 def test():
   results = TST.parseResults(test_data):
-  for result in results:
-    print result
+  for t,s,e in results:
+    print t.name,":", t.value
   
 
 if __name__=="__main__":
