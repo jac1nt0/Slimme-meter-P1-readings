@@ -46,7 +46,7 @@ test_data = '''
 '''
 
 def test():
-  results = value.scanString(test_data)
+  results = OBIS.scanString(test_data)
   for t,s,e in results:
     print t
   
