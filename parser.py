@@ -1,6 +1,6 @@
 import pyparsing as pp
 
-header = pp.Word(pp.alphanums+ '/' + ' ' + '-')
+header = pp.Combine(pp.Word('/')+pp.Word(pp.alphanums + ' ' + '-'))
 
 year = pp.Word(pp.nums, exact=2)('year')
 month = pp.Word(pp.nums, exact=2)('month')
@@ -78,7 +78,7 @@ def test():
   print '###############'
   results = sentence3.scanString(test_data)
   for t,s,e in results:
-    print 
+    print t
     count += 1
   print '###############'
   results = sentence4.scanString(test_data)
