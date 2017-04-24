@@ -61,15 +61,15 @@ def test():
   results = sentence1.scanString(test_data)
   for t,s,e in results:
     print t
-  print '###############"
+  print '###############'
   results = sentence2.scanString(test_data)
   for t,s,e in results:
     print t
-  print '###############"
+  print '###############'
   results = sentence3.scanString(test_data)
   for t,s,e in results:
     print t
-  print '###############"
+  print '###############'
   
 
 if __name__=="__main__":
