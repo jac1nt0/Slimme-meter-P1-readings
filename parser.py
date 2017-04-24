@@ -24,6 +24,10 @@ OBIS = pp.Combine(pp.Word(pp.nums,exact=1) +
                 '.' + 
                 pp.Word(pp.nums,min=1,max=2))('obis')
 
+sentence1 = OBIS + pp.Suppress('(') + pp.nums + pp.Suppress(')')
+sentence2 = OBIS + pp.Suppress('(') + TST + pp.Suppress(')')
+sentence3 = OBIS + pp.Suppress('(') + value + pp.Suppress(')')
+
 test_data = '''
 /KFM5KAIFA-METER
 
@@ -54,9 +58,18 @@ test_data = '''
 '''
 
 def test():
-  results = OBIS.scanString(test_data)
+  results = sentence1.scanString(test_data)
   for t,s,e in results:
     print t
+  print '###############"
+  results = sentence2.scanString(test_data)
+  for t,s,e in results:
+    print t
+  print '###############"
+  results = sentence3.scanString(test_data)
+  for t,s,e in results:
+    print t
+  print '###############"
   
 
 if __name__=="__main__":
