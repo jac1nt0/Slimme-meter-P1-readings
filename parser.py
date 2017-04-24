@@ -12,7 +12,7 @@ dst = pp.Word(pp.alphas, exact=1)('dst')
 TST = pp.Group(year + month + day + hour + minutes + seconds + dst)('tst')
 
 float = pp.Word(pp.nums + '.' + pp.nums)
-unit = pp.Literal("kWh") ^ pp.Literal("kW") ^ pp.Literal("A") ^ pp.Literal("m3")
+unit = pp.Literal("kWh") ^ pp.Literal("kW") ^ pp.Literal("A") ^ pp.Literal("m3") ^ pp.Literal("s")
 value = pp.Group(float + pp.Suppress('*') + unit)
 
 OBIS = pp.Combine(pp.Word(pp.nums,exact=1) + 
@@ -26,7 +26,7 @@ OBIS = pp.Combine(pp.Word(pp.nums,exact=1) +
                 pp.Word(pp.nums,min=1,max=2))('obis')
 
 sentence1 = OBIS + pp.Suppress('(') + pp.Word(pp.nums) + pp.Suppress(')')
-sentence2 = OBIS + pp.Suppress('(') + TST + value+ pp.Suppress(')')
+sentence2 = OBIS + pp.Suppress('(') + TST + pp.Suppress(')') + pp.Suppress('(') + value+ pp.Suppress(')')
 sentence3 = OBIS + pp.Suppress('(') + value + pp.Suppress(')')
 
 test_data = '''
