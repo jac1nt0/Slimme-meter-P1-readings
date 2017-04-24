@@ -11,6 +11,12 @@ seconds = pp.Word(pp.nums, exact=2)('seconds')
 
 TST = pp.Group(year + month + day + hour + minutes + seconds)('tst')
 
+float = pp.Word(pp.nums + '.' + pp.nums)
+
+unit = "kWh" ^ "kW" ^ "A" ^ "m3"
+
+value = pp.Group(float + pp.Suppress('*') + unit)
+
 test_data = '''
 /KFM5KAIFA-METER
 
@@ -41,7 +47,7 @@ test_data = '''
 '''
 
 def test():
-  results = TST.scanString(test_data)
+  results = value.scanString(test_data)
   for t,s,e in results:
     print t
   
