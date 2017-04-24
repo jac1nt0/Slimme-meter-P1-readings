@@ -8,14 +8,13 @@ day = pp.Word(pp.nums, exact=2)('day')
 hour = pp.Word(pp.nums, exact=2)('hour')
 minutes = pp.Word(pp.nums, exact=2)('minutes')
 seconds = pp.Word(pp.nums, exact=2)('seconds')
-
 TST = pp.Group(year + month + day + hour + minutes + seconds)('tst')
 
 float = pp.Word(pp.nums + '.' + pp.nums)
-
 unit = pp.Literal("kWh") ^ pp.Literal("kW") ^ pp.Literal("A") ^ pp.Literal("m3")
-
 value = pp.Group(float + pp.Suppress('*') + unit)
+
+OBIS = pp.Word(pp.nums + '-' + pp.nums + ':' + pp.nums + '.' + pp.nums + '.' + pp.nums)('obis')
 
 test_data = '''
 /KFM5KAIFA-METER
