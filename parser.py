@@ -13,7 +13,7 @@ TST = pp.Group(year + month + day + hour + minutes + seconds)('tst')
 
 float = pp.Word(pp.nums + '.' + pp.nums)
 
-unit = "kWh" ^ "kW" ^ "A" ^ "m3"
+unit = pp.Literal("kWh") ^ pp.Literal("kW") ^ pp.Literal("A") ^ pp.Literal("m3")
 
 value = pp.Group(float + pp.Suppress('*') + unit)
 
