@@ -60,6 +60,10 @@ test_data = '''
 '''
 
 def test():
+  results = header.scanString(test_data)
+  for t,s,e in results:
+    print t
+  print '###############'
   results = sentence1.scanString(test_data)
   for t,s,e in results:
     print t
@@ -69,6 +73,10 @@ def test():
     print t
   print '###############'
   results = sentence3.scanString(test_data)
+  for t,s,e in results:
+    print t
+  print '###############'
+  results = sentence4.scanString(test_data)
   for t,s,e in results:
     print t
   print '###############'
