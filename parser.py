@@ -32,7 +32,7 @@ sentence4 = OBIS + pp.Suppress('(') +pp.Optional(pp.Word(pp.nums)) + pp.Suppress
 
 CRC = pp.Suppress(pp.Literal("!")) + pp.Word(pp.alphanums,exact=4)('crc')
 
-grammar = header + pp.OneOrMore(sentence1 ^ sentence2 ^ sentence3 ^ sentence4) + CRC
+grammar = header + (pp.OneOrMore(sentence1) ^ pp.OneOrMore(sentence2) ^ pp.OneOrMore(sentence3) ^ pp.OneOrMore(sentence4)) + CRC
 
 test_data = '''
 /KFM5KAIFA-METER
