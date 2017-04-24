@@ -14,7 +14,15 @@ float = pp.Word(pp.nums + '.' + pp.nums)
 unit = pp.Literal("kWh") ^ pp.Literal("kW") ^ pp.Literal("A") ^ pp.Literal("m3")
 value = pp.Group(float + pp.Suppress('*') + unit)
 
-OBIS = pp.Group(pp.nums + '-' + pp.nums + ':' + pp.nums + '.' + pp.nums + '.' + pp.nums)('obis')
+OBIS = pp.Group(pp.Word(pp.nums,exact=1=) + 
+                '-' + 
+                pp.Word(pp.nums,exact=1=) + 
+                ':' + 
+                pp.Word(pp.nums,exact=1=) + 
+                '.' +
+                pp.Word(pp.nums,exact=1=) + 
+                '.' + 
+                pp.Word(pp.nums,exact=1=))('obis')
 
 test_data = '''
 /KFM5KAIFA-METER
