@@ -24,14 +24,14 @@ OBIS = pp.Combine(pp.Word(pp.nums,exact=1) +
                 '.' + 
                 pp.Word(pp.nums,min=1,max=2))('obis')
 
-sentence1 = OBIS + pp.Suppress('(') + pp.nums + pp.Suppress(')')
-sentence2 = OBIS + pp.Suppress('(') + TST + pp.Suppress(')')
+sentence1 = OBIS + pp.Suppress('(') + pp.Word(pp.nums) + pp.Suppress(')')
+sentence2 = OBIS + pp.Suppress('(') + TST + value+ pp.Suppress(')')
 sentence3 = OBIS + pp.Suppress('(') + value + pp.Suppress(')')
 
 test_data = '''
 /KFM5KAIFA-METER
 
-1-3:0.2.8(42)
+1-3:0.2.8(42) 
 0-0:1.0.0(170424212445S)
 0-0:96.1.1(4530303235303030303834323232373136)
 1-0:1.8.1(000095.588*kWh)
