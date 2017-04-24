@@ -14,7 +14,7 @@ float = pp.Word(pp.nums + '.' + pp.nums)
 unit = pp.Literal("kWh") ^ pp.Literal("kW") ^ pp.Literal("A") ^ pp.Literal("m3")
 value = pp.Group(float + pp.Suppress('*') + unit)
 
-OBIS = pp.Word(pp.Word(pp.nums,exact=1) + 
+OBIS = pp.Combine(pp.Word(pp.nums,exact=1) + 
                 '-' + 
                 pp.Word(pp.nums,exact=1) + 
                 ':' + 
