@@ -43,7 +43,7 @@ test_data = '''
 def test():
   results = TST.scanString(test_data)
   for t,s,e in results:
-    print t.name,":", t.value
+    print t
   
 
 if __name__=="__main__":
