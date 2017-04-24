@@ -60,26 +60,33 @@ test_data = '''
 '''
 
 def test():
+  count = 0
   results = header.scanString(test_data)
   for t,s,e in results:
     print t
+    count += 1
   print '###############'
   results = sentence1.scanString(test_data)
   for t,s,e in results:
     print t
+    count += 1
   print '###############'
   results = sentence2.scanString(test_data)
   for t,s,e in results:
     print t
+    count += 1
   print '###############'
   results = sentence3.scanString(test_data)
   for t,s,e in results:
-    print t
+    print 
+    count += 1
   print '###############'
   results = sentence4.scanString(test_data)
   for t,s,e in results:
     print t
+    count += 1
   print '###############'
+  print "total count = {}".format(count)
   
 
 if __name__=="__main__":
