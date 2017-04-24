@@ -41,7 +41,7 @@ test_data = '''
 '''
 
 def test():
-  results = TST.parseResults(test_data):
+  results = TST.parseResults(test_data)
   for t,s,e in results:
     print t.name,":", t.value
   
