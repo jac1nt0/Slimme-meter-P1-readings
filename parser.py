@@ -30,6 +30,10 @@ sentence2 = OBIS + pp.Suppress('(') + TST + pp.Suppress(')') + pp.Suppress('(') 
 sentence3 = OBIS + pp.Suppress('(') + value + pp.Suppress(')')
 sentence4 = OBIS + pp.Suppress('(') +pp.Optional(pp.Word(pp.nums)) + pp.Suppress(')') + OBIS + pp.Suppress('(') + TST + pp.Suppress(')') + pp.Suppress('(') + value+ pp.Suppress(')')
 
+CRC = pp.Suppress(pp.Literal("!")) + pp.Word(pp.alphanums,exact=4)('crc')
+
+grammar = header + pp.ZeroOrMore(sentence1 ^ sentence2 ^ sentence3 ^ sentence4) + CRC
+
 test_data = '''
 /KFM5KAIFA-METER
 
@@ -60,6 +64,11 @@ test_data = '''
 '''
 
 def test():
+  results = grammar.parseString(test_data)
+  for item in results:
+    print item
+
+def test1():
   count = 0
   results = header.scanString(test_data)
   for t,s,e in results:
@@ -90,4 +99,4 @@ def test():
   
 
 if __name__=="__main__":
-  test()
+  test1()
