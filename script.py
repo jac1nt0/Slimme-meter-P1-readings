@@ -180,13 +180,13 @@ class P1Packet(object):
       packet = self._datagram[:match.end() + 1]
       checksum = self._datagram[match.end() + 1:]
 
-    if checksum.strip():
-      given_checksum = int('0x' + checksum.decode('ascii').strip(), 16)
-      calculated_checksum = crc16(packet)
+    #if checksum.strip():
+    #  given_checksum = int('0x' + checksum.decode('ascii').strip(), 16)
+    #  calculated_checksum = crc16(packet)
 
-      if given_checksum != calculated_checksum:
-        log.error('Checksum mismatch: given={}, calculated={}'.format(given_checksum, calculated_checksum))
-        raise P1PacketError('P1Packet with invalid checksum found')
+     # if given_checksum != calculated_checksum:
+     #   log.error('Checksum mismatch: given={}, calculated={}'.format(given_checksum, calculated_checksum))
+     #   raise P1PacketError('P1Packet with invalid checksum found')
 
 
   def __str__(self):
