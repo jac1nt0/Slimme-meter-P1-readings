@@ -21,6 +21,7 @@ def meter():
     'xonxoff': False,
     'timeout': 10,
   }
+  print defaults
     
     
   def __init__(self, port='/dev/ttyUSB0', **kwargs):
