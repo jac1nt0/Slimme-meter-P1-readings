@@ -198,3 +198,4 @@ if __name__=='__main__':
   a = meter()
   while True:
     dataframe = a.read_one_packet()
+    print dataframe._keys
