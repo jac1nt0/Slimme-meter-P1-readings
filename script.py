@@ -7,7 +7,7 @@ import logging
 import re
 
 log = logging.getLogger(__name__)
-log.setLevel(logging.INFO)
+log.setLevel(logging.DEBUG)
 fh = logging.FileHandler(filename='example.log')
 formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 fh.setFormatter(formatter)
@@ -35,6 +35,7 @@ class meter():
       self.port = self.serial.name
 
     log.info('New serial connection opened to %s', self.port)
+    self.serial.flush()
 
   def connect(self):
     if not self.serial.isOpen():
