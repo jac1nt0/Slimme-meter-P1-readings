@@ -11,7 +11,7 @@ crc16 = crcmod.predefined.mkPredefinedCrcFun('crc16')
 
 def meter():
   defaults = {
-    'baudrate' = 115200,
+    'baudrate' : 115200,
     'bytesize': serial.SEVENBITS,
     'parity': serial.PARITY_EVEN,
     'stopbits': serial.STOPBITS_ONE,
