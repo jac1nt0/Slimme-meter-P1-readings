@@ -198,5 +198,13 @@ if __name__=='__main__':
   a = meter()
   while True:
     dataframe = a.read_one_packet()
-    print "Power"
+    print "##########################################"
+    print "Power:"
     print "Currently using: {} kW".format(dataframe['kwh']['current_consumed'])
+    print "Total low tarif: {} kWh".format(dataframe['kwh']['low']['consumed'])
+    print "Total high tarif: {} kWh".format(dataframe['kwh']['high']['consumed'])
+    print "Gas:"
+    print "Total: {} kWh".format(dataframe['gas']['total'])
+    print ""
+    print ""
+    
