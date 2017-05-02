@@ -70,6 +70,7 @@ class meter():
     log.info('Start reading lines')
 
     while not startFound or not endFound:
+      print startFound, endFound
       try:
         line = self.serial.readline()
         log.debug('>> %s', line.decode('ascii').rstrip())
