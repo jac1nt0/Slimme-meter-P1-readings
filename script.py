@@ -7,7 +7,7 @@ import logging
 import re
 
 log = logging.getLogger(__name__)
-log.setLevel(logging.DEBUG)
+log.setLevel(logging.INFO)
 fh = logging.FileHandler(filename='example.log')
 formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 fh.setFormatter(formatter)
@@ -197,4 +197,4 @@ class P1Packet(object):
 if __name__=='__main__':
   a = meter()
   while True:
-    print a.read_one_packet()
+    dataframe = a.read_one_packet()
