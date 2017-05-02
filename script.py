@@ -55,6 +55,6 @@ def meter():
 
 
   def connected(self):
-    retur n self.serial.isOpen()
+    return self.serial.isOpen()
       
 
