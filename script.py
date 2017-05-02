@@ -16,8 +16,8 @@ log.addHandler(fh)
 class meter():
   defaults = {
     'baudrate' : 115200,
-    'bytesize': serial.SEVENBITS,
-    'parity': serial.PARITY_EVEN,
+    'bytesize': serial.EIGHTBITS,
+    'parity': serial.PARITY_NONE,
     'stopbits': serial.STOPBITS_ONE,
     'xonxoff': False,
     'timeout': 10,
