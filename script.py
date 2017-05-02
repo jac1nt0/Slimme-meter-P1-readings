@@ -4,10 +4,8 @@ import serial
 import time
 import pyparsing
 import logging
-import crcmod.predefined
 
 log = logging.getLogger(__name__)
-crc16 = crcmod.predefined.mkPredefinedCrcFun('crc16')
 
 def meter():
   defaults = {
