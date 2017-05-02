@@ -11,8 +11,7 @@ logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 log = logging.getLogger(__name__)
 
 
-def meter():
-  print "in meter"
+class meter():
   defaults = {
     'baudrate' : 115200,
     'bytesize': serial.SEVENBITS,
@@ -21,9 +20,7 @@ def meter():
     'xonxoff': False,
     'timeout': 10,
   }
-  print defaults
-    
-    
+  
   def __init__(self, port='/dev/ttyUSB0', **kwargs):
     print "does this work?"
     config = {}
