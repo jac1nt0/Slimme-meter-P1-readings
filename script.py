@@ -4,6 +4,7 @@ import serial
 import time
 import pyparsing
 import logging
+import re
 
 log = logging.getLogger(__name__)
 log.setLevel(logging.DEBUG)
