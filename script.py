@@ -195,4 +195,5 @@ class P1Packet(object):
 
 if __name__=='__main__':
   a = meter()
-  print a.read_one_packet()
+  while True:
+    print a.read_one_packet()
