@@ -199,4 +199,4 @@ if __name__=='__main__':
   while True:
     dataframe = a.read_one_packet()
     print "Power"
-    print "Currently using: {} kW".format(dataframe['kwh]['current_consumed'])
+    print "Currently using: {} kW".format(dataframe['kwh']['current_consumed'])
