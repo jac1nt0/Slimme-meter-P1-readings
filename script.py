@@ -24,11 +24,10 @@ class meter():
   }
   
   def __init__(self, port='/dev/ttyUSB0', **kwargs):
-    print "does this work?"
     config = {}
     config.update(self.defaults)
     config.update(kwargs)
-    print "here"
+    
     log.debug('Open serial connect to {} with: {}'.format(port, ', '.join('{}={}'.format(key, value) for key, value in config.items())))
 
     try:
@@ -60,9 +59,46 @@ class meter():
 
   def connected(self):
     return self.serial.isOpen()
+  
+  def read_one_packet(self):
+    datagram = b''
+    lines_read = 0
+    startFound = False
+    endFound = False
+    max_lines = 35 #largest known telegram has 35 lines
+
+    log.info('Start reading lines')
+
+    while not startFound or not endFound:
+      try:
+        line = self.serial.readline()
+        log.debug('>> %s', line.decode('ascii').rstrip())
+      except Exception as e:
+        log.error(e)
+        log.error('Read a total of %d lines', lines_read)
+        raise SmartMeterError(e)
+
+        lines_read += 1
+
+        if re.match(b'.*(?=/)', line):
+          startFound = True
+          endFound = False
+          datagram = line.lstrip()
+        elif re.match(b'(?=!)', line):
+          endFound = True
+          datagram = datagram + line
+        else:
+          datagram = datagram + line
+
+        # TODO: build in some protection for infinite loops
+
+    log.info('Done reading one packet (containing %d lines)' % len(datagram.splitlines()))
+    log.debug('Total lines read from serial port: %d', lines_read)
+    log.debug('Constructing P1Packet from raw data')
+
+    return P1Packet(datagram)
       
 
 if __name__=='__main__':
-  print "starting meter"
-  meter()
-  print "after meter"
+  a = meter()
+  print a.read_one_packet()
