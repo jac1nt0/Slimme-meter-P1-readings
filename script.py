@@ -5,11 +5,11 @@ import time
 import pyparsing
 import logging
 
-logging.basicConfig(filename='example.log',level=logging.DEBUG)
-formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-
 log = logging.getLogger(__name__)
-log.setFormatter(formatter)
+fh = logging.FileHandler(filename='example.log')
+formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+fh.setFormatter(formatter)
+log.addHandler(fh)
 
 
 class meter():
