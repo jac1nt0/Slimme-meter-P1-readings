@@ -56,3 +56,5 @@ def meter():
     return self.serial.isOpen()
       
 
+if __name__=='__main__':
+  meter()
