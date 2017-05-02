@@ -70,7 +70,6 @@ class meter():
     log.info('Start reading lines')
 
     while not startFound or not endFound:
-      print startFound, endFound
       try:
         line = self.serial.readline()
         log.debug('>> %s', line.decode('ascii').rstrip())
@@ -79,17 +78,17 @@ class meter():
         log.error('Read a total of %d lines', lines_read)
         raise SmartMeterError(e)
 
-        lines_read += 1
+      lines_read += 1
 
-        if '/' in line:
-          startFound = True
-          endFound = False
-          datagram = line.lstrip()
-        elif '!' in line:
-          endFound = True
-          datagram = datagram + line
-        else:
-          datagram = datagram + line
+      if '/' in line:
+        startFound = True
+        endFound = False
+        datagram = line.lstrip()
+      elif '!' in line:
+        endFound = True
+        datagram = datagram + line
+      else:
+        datagram = datagram + line
 
         # TODO: build in some protection for infinite loops
 
