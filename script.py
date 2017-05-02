@@ -5,9 +5,10 @@ import time
 import pyparsing
 import logging
 
-logger = logging.basicConfig(filename='example.log',level=logging.DEBUG)
+logging.basicConfig(filename='example.log',level=logging.DEBUG)
 logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 
+logger = logging.getlogger('example')
 logger.debug('debug message')
 logger.info('info message')
 logger.warn('warn message')
