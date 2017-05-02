@@ -6,6 +6,13 @@ import pyparsing
 import logging
 
 logging.basicConfig(filename='example.log',level=logging.DEBUG)
+formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+
+logger.debug('debug message')
+logger.info('info message')
+logger.warn('warn message')
+logger.error('error message')
+logger.critical('critical message')
 
 def meter():
   defaults = {
