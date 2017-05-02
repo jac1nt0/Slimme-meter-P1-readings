@@ -80,11 +80,11 @@ class meter():
 
         lines_read += 1
 
-        if re.match(b'.*(?=/)', line):
+        if '/' in line:
           startFound = True
           endFound = False
           datagram = line.lstrip()
-        elif re.match(b'(?=!)', line):
+        elif '!' in line:
           endFound = True
           datagram = datagram + line
         else:
