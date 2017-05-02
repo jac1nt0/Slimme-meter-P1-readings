@@ -196,7 +196,7 @@ class P1Packet(object):
 
 if __name__=='__main__':
   a = meter()
-  while True:
+  for x in range(2):
     dataframe = a.read_one_packet()
     print "##########################################"
     print "Power:"
@@ -207,4 +207,5 @@ if __name__=='__main__':
     print "Total: {} kWh".format(dataframe['gas']['total'])
     print ""
     print ""
+  a.disconnect()
     
