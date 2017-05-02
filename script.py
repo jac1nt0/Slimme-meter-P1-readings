@@ -12,6 +12,7 @@ log = logging.getLogger(__name__)
 
 
 def meter():
+  print "in meter"
   defaults = {
     'baudrate' : 115200,
     'bytesize': serial.SEVENBITS,
@@ -23,6 +24,7 @@ def meter():
     
     
   def __init__(self, port='/dev/ttyUSB0', **kwargs):
+    print "does this work?"
     config = {}
     config.update(self.defaults)
     config.update(kwargs)
