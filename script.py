@@ -8,7 +8,7 @@ import logging
 logging.basicConfig(filename='example.log',level=logging.DEBUG)
 logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 
-log = logging.getLogger('example')
+log = logging.getLogger(__name__)
 
 
 def meter():
@@ -26,7 +26,7 @@ def meter():
     config = {}
     config.update(self.defaults)
     config.update(kwargs)
-
+    print "here"
     log.debug('Open serial connect to {} with: {}'.format(port, ', '.join('{}={}'.format(key, value) for key, value in config.items())))
 
     try:
